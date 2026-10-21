@@ -107,18 +107,18 @@ config['general']['heat_flux_timestep_limit'] = 1e-6 * u.s
 # We are telling the code to refine the grid every time step, and that
 # any grid cell can be refined up to 12 times.  For extremely strong heating events,
 # you might consider increasing this to 14.
-config['solver']['adapt_every_n_time_steps'] = 1
-config['solver']['initial_refinement_level'] = 12
-config['solver']['maximum_refinement_level'] = 12
+config['grid']['adapt_every_n_time_steps'] = 1
+config['grid']['initial_refinement_level'] = 12
+config['grid']['maximum_refinement_level'] = 12
 
 #################################################################
 # Finally, we change a few parameters from their defaults, only for stability
 # Do not check for numerical precision errors in the conservation of energy:
-config['solver']['enforce_conservation'] = False
+config['grid']['enforce_conservation'] = False
 
 #################################################################
 # Do not refine the grid on hydrogen energy:
-config['solver']['refine_on_hydrogen_energy'] = False
+config['grid']['refine_on_hydrogen_energy'] = False
 
 
 #################################################################
@@ -134,4 +134,4 @@ c.setup_simulation(tmpdir / 'test-run', hydrad_clean)  # The location of the sim
 # This will have set up the simulation, which can now be run!  Since
 # beam heating simulations can be somewhat slower, it is recommended
 # to run this by hand in a terminal.  Also, if using Mac, be sure to
-# use the "caffeinate" command to keep the computer from sleeping.
+# use the "caffeinate" command to keep the computer from sleeping (e.g. "caffeinate -i ./HYDRAD.exe").
