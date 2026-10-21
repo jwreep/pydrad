@@ -95,7 +95,9 @@ config['heating']['beam'] = [
 #
 # Let's first set "safety" parameters for the radiation and conduction time-scales,
 # which simply reduce their values to make it more likely that the CFL condition is met.
-config['solver']['safety_radiation'] = 0.1
+# This is particularly important for the chromosphere when there is strong heating by
+# e.g. an electron beam.
+config['solver']['safety_radiation'] = 0.01
 config['solver']['safety_conduction'] = 0.1
 
 #################################################################
